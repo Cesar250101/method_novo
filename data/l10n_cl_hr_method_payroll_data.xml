@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="hr_rule_200" model="hr.salary.rule">
+            <field name="name">Anticipo 2</field>
+            <field name="sequence" eval="39"/>
+            <field name="code">ASUE2</field>
+            <field name="category_id" ref="l10n_cl_hr.ODESC"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = (inputs.ASUE2 and inputs.ASUE2.amount > 0)</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = inputs.ASUE2.amount</field>
+        </record>
+
+        <record id="hr_rule_input_anticipo_2" model="hr.rule.input">
+            <field name="code">ASUE2</field>
+            <field name="name">Anticipo 2</field>
+            <field name="input_id" ref="hr_rule_200"/>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,24 @@
+<odoo>
+  <data>
+    <!-- model.name inherit form view -->
+    <record id="method_novo.invoice_supplier_form" model="ir.ui.view">
+      <field name="name">method.novo.invoice.supplier.form</field>
+      <field name="model">account.invoice</field>
+      <field name="inherit_id" ref="account.invoice_supplier_form"/>
+      <field name="arch" type="xml">
+        <xpath expr="//page[@name='other_info']" position="after">
+          <page name="rrhh" string="Recursos Humanos">
+              <group string="Conexión Nóminas">
+                <group>
+                  <field name="descuento_nomina"/>
+                  <field name="employee_id" attrs="{'invisible': [('descuento_nomina', '=', False)]}"/>
+                  
+                </group>
+              </group>
+          </page>
+        </xpath>        
+        
+      </field>
+    </record>
+  </data>
+</odoo>
